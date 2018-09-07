@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
         
     message.channel.send('', {embed}).catch(error => logChannel.send(`embed error: ${error}`));
 
-    await message.channel.send("ALL DONE!!");
+    await message.channel.send("ALLLLLL DONE!");
 
     return 0;
      

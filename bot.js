@@ -52,7 +52,7 @@ const prefix = botSettings.prefix;
 // const URL_REG_EXP = /^(?:https?:\/\/)?(?:w{3}\.)?(?:youtu\.be\/|youtube\.com\/watch\?v=)[\w-]{11}$/i;
 
 // Bot logs in
-bot.login(botSettings.token);
+bot.login(process.env.TOKEN);
 
 bot.on('ready', async () => {
   console.log(`READY TO RUMBLE!!!!!! ${bot.user.username}`);
@@ -75,6 +75,9 @@ bot.on('ready', async () => {
    });
 
    console.log("The anti spam is locked and loaded.");
+
+   bot.user.setStatus('online');
+   bot.user.setPresence({ game: { name: 'use !meeseeks for help', type: 0 } })
 });
 
 // Create an event listener for new guild members
@@ -94,6 +97,7 @@ bot.on('guildMemberAdd', member => {
   });
 
 bot.on("message", message => {
+  
   
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;

@@ -11,16 +11,18 @@ module.exports.run = async (bot, message, args) => {
 
     const embed = new Discord.RichEmbed()
         .setTitle("Admin commands! OOOOOOH WEEEEEEEEEEE")
+        .setDescription("Make sure to use @ when dealing with a user")
         .setColor('RANDOM')
         .setFooter("Mr. Meeseeks | v0.0.4.20.69", bot.user.displayAvatarURL)
         .setTimestamp()
-        .addField("!announce", "Make an announcement!")
-        .addField("!ban", "When a user decides to fuck up everyone's life.")
-        .addField("!kick", "When a user is being an edgy 12-year-old fag.")
-        .addField("!newrole", "Create a new role!")
-        .addField("!role", "Assign some fuckboi a role.")
-        .addField("!mute", "That annoying bitch being annoying? Mute them.")
-        .addField("!unmute", "Giving them the silent treatment must have worked.");
+        .addField("!setup", "*SERVER OWNER* Copy and paste to get started on your new meeseeks")
+        .addField("!announce [message]", "Make an announcement!")
+        .addField("!ban [username]", "When a user decides to fuck up everyone's life.")
+        .addField("!kick [username]", "When a user is being an edgy 12-year-old fag.")
+        .addField("!newrole [username]", "Create a new role!")
+        .addField("!role [role]", "Assign that fuckboi a role.")
+        .addField("!mute [username]", "That annoying bitch being annoying? Mute them.")
+        .addField("!unmute[username]", "Giving them the silent treatment must have worked.");
 
     if(ifAdmin) {
         try {
@@ -28,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
         }
         catch(e) {
             logChannel.send(e.stack);
-            message.channel.send("Someone made a fucky wucky. The dev might know.");
+            message.channel.send("Oopsie whoopsie someone made a fucky wucky. The dev might know.");
         }
     }
     else {
