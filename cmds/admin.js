@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (bot, message, args)  => {
+module.exports.run = async (bot, message, args) => {
 
     await message.channel.send("CAAAAAAAN DOOOOO!");
 
@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args)  => {
         .addField("!mute", "That annoying bitch being annoying? Mute them.")
         .addField("!unmute", "Giving them the silent treatment must have worked.");
 
-    message.author.send('', {embed}).catch(error => logChannel.send(`admin command error: ${error}`));
+    message.author.send('', {embed}).catch(error => console.log(`admin command error: ${error}`));
     await message.channel.send("ALLL DONE!!!!");
 
     return 0;
