@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("!ban [username]", "When a user decides to fuck up everyone's life.")
         .addField("!kick [username]", "When a user is being an edgy 12-year-old fag.")
         .addField("!newrole [username]", "Create a new role!")
-        .addField("!role [role]", "Assign that fuckboi a role.")
+        .addField("!role [username] [role]", "Assign that fuckboi a role.")
         .addField("!mute [username]", "That annoying bitch being annoying? Mute them.")
         .addField("!unmute[username]", "Giving them the silent treatment must have worked.");
 

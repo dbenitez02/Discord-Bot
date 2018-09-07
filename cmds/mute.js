@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
   const toMute = message.guild.member((message.mentions.users.first()) || (message.guild.members.get(args[0]))); // I think use .find() instead of .get()
       
   //Checks if the user entered a username or ID.
-  if (!toMute) return message.reply("I CAN'T FIND THAT PERSON AHHHHHHHHH!");
+  if (!toMute) return message.author.send("I CAN'T FIND THAT PERSON AHHHHHHHHH!");
       
   //Checks if the user is muting themselves.
   if(toMute.id === message.author.id) return message.reply("Hi! I'm Mr. Meeseek, you can't mute yourself.");

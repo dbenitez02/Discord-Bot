@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
 
     const role = message.guild.roles.find("name", "muted"); // The role all muters will have.
 
-    if(!role || !toMute.roles.has(role.id)) return message.reply("UUHHH THIS PERSON IS ALREADY UNMUTED!");
+    if(!role || !toMute.roles.has(role.id)) return message.author.send("UUHHH THIS PERSON IS ALREADY UNMUTED!");
 
     toMute.removeRole(role).catch(error => logChannel.send(`Unmute command error: ${error}`)); // unmute if it passes all conditions.
     await message.author.send(`I have unmuted ${toMute}`);
