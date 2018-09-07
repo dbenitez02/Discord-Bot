@@ -29,7 +29,6 @@ module.exports.run = async (bot, message, args) => {
         catch(e) {
             logChannel.send(e.stack);
             message.channel.send("Someone made a fucky wucky. The dev might know.");
-            await message.channel.send("ALLL DONE!!!!");
         }
     }
     else {

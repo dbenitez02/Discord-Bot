@@ -7,7 +7,6 @@ module.exports.run = (bot, message, args) => {
 
     message.delete();
     
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.author.send("UHHHH, I CAN'T LET YOU USE THIS, WHY MUST YOU SUMMON ME!!");
     if(!args[0]) return message.author.send("I CAN'T ANNOUNCE ANYTHING, PUT SOMETHING!!");
 
     const announcement = args.join(" ");    // Create a variable to store the messge.
@@ -44,6 +43,8 @@ module.exports.run = (bot, message, args) => {
                 logChannel.send(e.stack);
                 logChannel.send("Someone created a fucky wucky. The dev might know.");
             }
+        } else {
+            message.author.send("UHHHH, I CAN'T LET YOU USE THIS, WHY MUST YOU SUMMON ME!!");
         }
 
 

@@ -86,7 +86,7 @@ bot.on('guildMemberAdd', member => {
   var role = member.guild.roles.find("name", "plebs");
   member.addRole(role); // New user shall be will fall with the rest of the plebs.
 
-  logChannel.send(`The one named ${member.user.username} has joined the server.`); // Let mods know a new user joined.
+  logChannel.send(`The one named ${member.user} has joined the server.`); // Let mods know a new user joined.
 
   // Sends a reply message to the new member.
    member.send(`HI ${member.user.username}! I'M MR. MEESEEKS!! LOOK AT MEEEEEE!! Use !meeseeks for commands!`);
