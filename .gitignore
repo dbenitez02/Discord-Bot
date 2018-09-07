@@ -1,4 +1,8 @@
+# files and modules
 node_modules
-.vscode
 offlimits
+
+# element files
+.vscode
 .eslintrc.json
+.env
