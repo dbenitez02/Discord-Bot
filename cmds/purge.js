@@ -32,7 +32,7 @@ async function purge(bot, message, args) {
 
     }
     else {
-        await message.channel.bulkDelete(num)
+        message.channel.bulkDelete(num)
             .catch(error => logChannel.send(`command error: ${error}`));
         return;
     }

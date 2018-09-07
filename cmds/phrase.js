@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
         .addField('Phrase 2:', 'existence')
         .addField('Phrase 3:', 'good')
 
-    await message.channel.send('', {embed}).catch(error => logChannel.send(`phrase command error: ${error}`));
+    message.channel.send('', {embed}).catch(error => logChannel.send(`phrase command error: ${error}`));
 
     await message.channel.send("ALLL DONE!!!!");
     

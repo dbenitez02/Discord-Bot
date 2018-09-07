@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
     if(userBan.highestRole.position >= message.member.highestRole.position) return message.reply("Hi, I'm Mr. Meeseeks,");
 
     // Ban that sumbitch
-    await userBan.ban(numDays).catch(error => logChannel.send(`ban command error: ${error}`));
+    userBan.ban(numDays).catch(error => logChannel.send(`ban command error: ${error}`));
     logChannel.send(`${userBan} has been banned for ${numDays} days by ${message.author.username}.`);
 
     return 0;

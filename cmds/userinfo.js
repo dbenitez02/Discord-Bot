@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Created at", message.author.createdAt);
 
 
-    await message.channel.send('', {embed}).catch(error => console.log(`Error: ${error}`));
+    message.channel.send('', {embed}).catch(error => console.log(`Error: ${error}`));
     await message.channel.send("ALLL DONE!!!!");
 
 }

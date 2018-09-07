@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
     if(!assignRole) return message.author.send(`UUUHHHHH, I CAN'T FIND ${assignRole}`);
 
     //Grants the user that role
-    await userRole.addRole(assignRole).catch(error => logChannel.send(`role command error: ${error}`));
+    userRole.addRole(assignRole).catch(error => logChannel.send(`role command error: ${error}`));
     await message.channel.send(`${userRole} is now ${assignRole}!! OOOOHHHH WEEEEEE!`);
     logChannel.send(`${userRole} is now ${assignRole}, assigned by ${message.author.username}.`);
 

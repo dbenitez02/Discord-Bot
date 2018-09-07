@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Region:", message.guild.region, true)
     .setTimestamp();
 
-    await message.channel.send('', {embed}).catch(error => logChannel.send(`serverinfo command error: ${error}`));
+    message.channel.send('', {embed}).catch(error => logChannel.send(`serverinfo command error: ${error}`));
     await message.channel.send("ALLL DONE!!!!");
 }
 

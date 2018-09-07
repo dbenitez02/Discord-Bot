@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 
-module.exports.run = (bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
+    await message.channel.send("CAAAAAAAN DOOOOO!");
     const logChannel = bot.channels.find("name", "admin-log");
 
     const embed = new Discord.RichEmbed()
@@ -15,9 +16,11 @@ module.exports.run = (bot, message, args) => {
     .addField("!define", "For when you want to find definitions for your weak memes.")
 
 message.channel.send('', {embed}).catch(error => logChannel.send(`help command error: ${error}`));
+await message.channel.send("ALLL DONE!!!!");
 
+return 0;
 }
 
 module.exports.help = {
-    name: "help"
+    name: "ezhelp"
 }

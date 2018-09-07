@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run =  async (bot, message, args) => {
+module.exports.run = (bot, message, args) => {
 
     const logChannel = bot.channels.find("name", "admin-log");
 
@@ -35,7 +35,7 @@ module.exports.run =  async (bot, message, args) => {
         .setDescription(announcement)
         .setFooter("Mr. Meeseeks | v0.0.4.20.69", bot.user.displayAvatarURL)
         .setTimestamp();
-    await announceChannel.send('Hey! @everyone\n', {embed}).catch(error => logChannel.send(`announcement command error: ${error}`)); 
+    announceChannel.send('Hey! @everyone\n', {embed}).catch(error => logChannel.send(`announcement command error: ${error}`)); 
     logChannel.send("An anouncement has been made.");
 
     message.author.send("ALLL DOOOONE.");

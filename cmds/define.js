@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
         .addField(":thumbsup:", def.thumbsUp, true)  
         .addField(":thumbsdown:", def.thumbsDown, true);
         
-    await message.channel.send('', {embed}).catch(error => logChannel.send(`embed error: ${error}`));
+    message.channel.send('', {embed}).catch(error => logChannel.send(`embed error: ${error}`));
 
     await message.channel.send("ALL DONE!!");
 

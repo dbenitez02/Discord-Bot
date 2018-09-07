@@ -1,5 +1,5 @@
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = (bot, message, args) => {
     const logChannel = bot.channels.find("name", "admin-log");
 
     const addUser = message.guild.member((message.mentions.users.first()) || message.guild.members.get(args[0]));
@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     //Cant add bots as friend
     if(addUser.bot) return message.author.send("I'M MR. MEESEEKS, YOU CAN'T ADD ME!");
 
-    await addUser.addFriend().catch(error => logChannel.send(`Add command error: ${error}`)); // TODO: Fix this line.
+    addUser.addFriend().catch(error => logChannel.send(`Add command error: ${error}`)); // TODO: Fix this line.
 
     return 0;
 

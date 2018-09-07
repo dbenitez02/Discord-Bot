@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(!role || !toMute.roles.has(role.id)) return message.reply("UUHHH THIS PERSON IS ALREADY UNMUTED!");
 
-    await toMute.removeRole(role).catch(error => logChannel.send(`Unmute command error: ${error}`)); // unmute if it passes all conditions.
+    toMute.removeRole(role).catch(error => logChannel.send(`Unmute command error: ${error}`)); // unmute if it passes all conditions.
     await message.author.send(`I have unmuted ${toMute}`);
     logChannel.send(`${toMute} has been unmuted.`);
 

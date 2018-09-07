@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
     if(toBlock.id === message.author.id) return message.author.send("Hi, I'm Mr. Meeseeks, YOU CAN'T BLOCK YOURSELF.");
 
     //Block user
-    await toBlock.block().catch(error => logChannel.send(`block commmand error: ${error}`));
+    toBlock.block().catch(error => logChannel.send(`block commmand error: ${error}`));
     await message.author.send(`I have blocked ${toBlock}'s`);
     logChannel.send(`${toBlock} has been blocked.`);
 

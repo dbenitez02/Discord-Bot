@@ -46,7 +46,7 @@ module.exports.run = async (bot, message, args) => {
   if(toMute.roles.has(role.id)) return message.author.send("This user is already muted!");
       
   //Mutes user and adds them to the muted group
-  await toMute.addRole(role).catch(error => logChannel.send(`mute command error: ${error}`));
+  toMute.addRole(role).catch(error => logChannel.send(`mute command error: ${error}`));
   await message.author.send(`I have muted ${toMute}`);
   logChannel.send(`${toMute} has been muted.`);
       

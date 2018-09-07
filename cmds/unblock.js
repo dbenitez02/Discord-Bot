@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
     //if(userblocked = true) then unblock
 
     //Unblock user
-    await toUnblock.unblock().catch(error => logChannel.send(`unblock command error: ${error}`));
+    toUnblock.unblock().catch(error => logChannel.send(`unblock command error: ${error}`));
     await message.author.send(`I have unblocked ${toUnblock}`);
     logChannel.send(`User ${toUnblock} has been unblocked.`);
 
