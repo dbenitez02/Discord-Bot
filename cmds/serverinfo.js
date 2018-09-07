@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     const embed = new Discord.RichEmbed()
     .setTitle("Status of the server")
     .setColor("#0033cc")
-    .setFooter("Mr. Meeseeks | Beta Bot v0.0.4.20.69", bot.user.displayAvatarURL)
+    .setFooter("Mr. Meeseeks | v0.0.4.20.69", bot.user.displayAvatarURL)
     .addField("Owner:", message.guild.owner,true)
     .addField("Number of users:", Math.ceil(message.guild.memberCount - 2), true)
     .addField("Region:", message.guild.region, true)

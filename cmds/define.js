@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
         .setAuthor(def.word)
         .setTitle("Click here for more!")
         .setURL(def.urbanURL)
-        .setFooter("Urban Dictionary | Beta Bot v0.0.4.20.69", bot.user.displayAvatarURL)
+        .setFooter("Urban Dictionary", bot.user.displayAvatarURL)
         .setDescription(`Definition:\n${def.definition}`)
         .setTimestamp()
         .addField("Example: ", def.example)

@@ -1,7 +1,10 @@
 module.exports.run = async (bot, message, args) => {
     const logChannel = bot.channels.find("name", "admin-log");
-
+    const ifAdmin = message.member.hasPermission("MANAGE_MESSAGES");
+    
     await message.channel.send("CAAAAAAAN DOOOOO!");
+
+    if(!ifAdmin) return message.author.send("Hi, I'm Mr. Meeseeks and you don't have `MANAGE_MESSSAGES` permission.");
 
     let newRole = message.guild.roles.find("name", args.join(" ").toLowerCase());
 

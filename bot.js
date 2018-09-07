@@ -52,7 +52,7 @@ const prefix = botSettings.prefix;
 // const URL_REG_EXP = /^(?:https?:\/\/)?(?:w{3}\.)?(?:youtu\.be\/|youtube\.com\/watch\?v=)[\w-]{11}$/i;
 
 // Bot logs in
-bot.login(process.env.TOKEN);
+bot.login(botSettings.token);
 
 bot.on('ready', async () => {
   console.log(`READY TO RUMBLE!!!!!! ${bot.user.username}`);
@@ -88,11 +88,8 @@ bot.on('guildMemberAdd', member => {
 
   logChannel.send(`The one named ${member.user.username} has joined the server.`); // Let mods know a new user joined.
 
-  const channel = bot.channels.find("name", "welcome");
-  if(!channel) return;
-
   // Sends a reply message to the new member.
-   channel.send(`HI ${member}! I'M MR. MEESEEKS!! LOOK AT MEEEEEE!! Use !help for commands!`).catch(error => `Error: ${error}`);
+   member.send(`HI ${member.user.username}! I'M MR. MEESEEKS!! LOOK AT MEEEEEE!! Use !meeseeks for commands!`);
   
   });
 

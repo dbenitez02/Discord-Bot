@@ -5,14 +5,14 @@ module.exports.run = async (bot, message, args) => {
     await message.channel.send("CAAAAAAAN DOOOOO!");
 
     const logChannel = bot.channels.find("name", "admin-log");
-    const ifAdmin = message.author.hasPermission("ADMINISTRATOR");
+    const ifAdmin = message.member.hasPermission("ADMINISTRATOR");
 
-    if(!ifAdmin) return message.author.send("Hi, I'm Mr. Meeseeks and you don't have `ADMINISTRATOR`");
+    // if(!ifAdmin) return message.author.send("Hi, I'm Mr. Meeseeks and you don't have `ADMINISTRATOR`");
 
     const embed = new Discord.RichEmbed()
         .setTitle("Admin commands! OOOOOOH WEEEEEEEEEEE")
         .setColor('RANDOM')
-        .setFooter("Beta bot | v0.0.4.20.69", bot.user.displayAvatarURL)
+        .setFooter("Mr. Meeseeks | v0.0.4.20.69", bot.user.displayAvatarURL)
         .setTimestamp()
         .addField("!announce", "Make an announcement!")
         .addField("!ban", "When a user decides to fuck up everyone's life.")
@@ -22,8 +22,19 @@ module.exports.run = async (bot, message, args) => {
         .addField("!mute", "That annoying bitch being annoying? Mute them.")
         .addField("!unmute", "Giving them the silent treatment must have worked.");
 
-    message.author.send('', {embed}).catch(error => console.log(`admin command error: ${error}`));
-    await message.channel.send("ALLL DONE!!!!");
+    if(ifAdmin) {
+        try {
+            message.author.send('', {embed})
+        }
+        catch(e) {
+            logChannel.send(e.stack);
+            message.channel.send("Someone made a fucky wucky. The dev might know.");
+            await message.channel.send("ALLL DONE!!!!");
+        }
+    }
+    else {
+        await message.author.send("Hi, I'm Mr. Meeseeks and you don't have `ADMINISTRATOR` permission.");
+    }
 
     return 0;
 }
