@@ -1,6 +1,7 @@
 # files and modules
 node_modules
 offlimits
+test.js
 
 # element files
 .vscode

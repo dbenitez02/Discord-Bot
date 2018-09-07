@@ -1,6 +1,9 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args)  => {
+
+    await message.channel.send("CAAAAAAAN DOOOOO!");
+
     const logChannel = bot.channels.find("name", "admin-log");
     const ifAdmin = message.author.hasPermission("ADMINISTRATOR");
 
@@ -17,8 +20,10 @@ module.exports.run = async (bot, message, args)  => {
         .addField("!newrole", "Create a new role!")
         .addField("!role", "Assign some fuckboi a role.")
         .addField("!mute", "That annoying bitch being annoying? Mute them.")
-        .addField("!unmute", "Giving them the silent treatment must have worked.")
+        .addField("!unmute", "Giving them the silent treatment must have worked.");
+
     await message.author.send('', {embed}).catch(error => logChannel.send(`admin command error: ${error}`));
+    await message.channel.send("ALLL DONE!!!!");
 
     return 0;
 }
