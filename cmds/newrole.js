@@ -1,5 +1,5 @@
 module.exports.run = async (bot, message, args) => {
-    const logChannel = bot.channels.find("name", "admin-log");
+    const logChannel = message.guild.channels.find("name", "admin-log");
     const ifAdmin = message.member.hasPermission("MANAGE_MESSAGES");
     
     await message.channel.send("CAAAAAAAN DOOOOO!");

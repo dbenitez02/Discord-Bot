@@ -4,7 +4,6 @@ module.exports.run = (bot, message, args) => {
     const logChannel = message.guild.channels.find("name", "admin-log");
     const checkRole = message.guild.roles.find("name", "plebs");
     message.author.send("Checking on a couple of things");
-    //logChannel.send("Checking for this channel.");
     
     // First order of business, check for event logger
     if(!logChannel) {

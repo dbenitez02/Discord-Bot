@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
 
     await message.channel.send("CAAAAAAAN DOOOOO!");
 
-    const logChannel = bot.channels.find("name", "admin-log");
+    const logChannel = message.guild.channels.find("name", "admin-log");
     const ifAdmin = message.member.hasPermission("ADMINISTRATOR");
 
     // if(!ifAdmin) return message.author.send("Hi, I'm Mr. Meeseeks and you don't have `ADMINISTRATOR`");

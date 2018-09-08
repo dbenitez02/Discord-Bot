@@ -1,5 +1,5 @@
 module.exports.run = async (bot, message, args) => {
-    const logChannel = bot.channels.find("name", "admin-log");
+    const logChannel = message.guild.channels.find("name", "admin-log");
 
     message.author.send("CAAAAAAAN DOOOOO!");
 
@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
     if(userBan.highestRole.position >= message.member.highestRole.position) return message.reply("Hi, I'm Mr. Meeseeks,");
 
     // Ban that sumbitch
-    userBan.ban(numDays).catch(error => logChannel.send(`ban command error: ${error}`));
+    await userBan.ban(numDays).catch(error => logChannel.send(`ban command error: ${error}`));
     logChannel.send(`${userBan} has been banned for ${numDays} days by ${message.author.username}.`);
 
     return 0;

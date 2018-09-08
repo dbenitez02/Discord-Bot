@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
     await message.channel.send("CAAAAAAAN DOOOOO!");
-    const logChannel = bot.channels.find("name", "admin-log");
+    const logChannel = message.guild.channels.find("name", "admin-log");
 
     const embed = new Discord.RichEmbed()
     .setTitle("Just a few user commands, more to come soon!")
