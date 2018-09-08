@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-    const logChannel = bot.channels.find("name", "admin-log");
+    const logChannel = message.guild.channels.find("name", "admin-log");
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.author.send("Hi, I'm Mr. Meeseeks and you dont have `MANAGE_MESSAGES`.");
     message.delete();
     
@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
             logChannel.send("Someone created a fucky wucky. Ask the dev.");
         }
     }
-    const announceChannel = bot.channels.find("name", "announcements"); // send the message to the channel once or if it has been created
+    const announceChannel = message.guild.channels.find("name", "announcements"); // send the message to the channel once or if it has been created
 
     const embed = new Discord.RichEmbed()
         .setColor('RANDOM')

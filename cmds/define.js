@@ -2,7 +2,7 @@ const urban = require("relevant-urban");
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-    const logChannel = bot.channels.find("name", "admin-log");
+    const logChannel = message.guild.channels.find("name", "admin-log");
 
     await message.channel.send("CAAAAAAAN DOOOOO!");
 

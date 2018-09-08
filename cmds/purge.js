@@ -1,5 +1,5 @@
 module.exports.run = async (bot, message, args) => {
-    const logChannel = bot.channels.find("name", "admin-log");
+    const logChannel = message.guild.channels.find("name", "admin-log");
 
     //Condition conditions conditions
     //Check if the user has the write to modity messages

@@ -16,6 +16,7 @@ module.exports.run = async (bot, message, args) => {
         .setFooter("Mr. Meeseeks | v0.0.4.20.69", bot.user.displayAvatarURL)
         .setTimestamp()
         .addField("!setup", "*SERVER OWNER* Copy and paste to get started on your new meeseeks")
+        .addField("!purge [num of messages]", "For when the chat gets cluttered, max 100 message.")
         .addField("!announce [message]", "Make an announcement!")
         .addField("!ban [username]", "When a user decides to fuck up everyone's life.")
         .addField("!kick [username]", "When a user is being an edgy 12-year-old fag.")

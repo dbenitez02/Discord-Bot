@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
+    const logChannel = message.guild.channels.find("name", "admin-log");
 
     await message.channel.send("CAAAAAAAN DOOOOO!");
 
@@ -16,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Created at", message.author.createdAt);
 
 
-    message.channel.send('', {embed}).catch(error => console.log(`Error: ${error}`));
+    message.channel.send('', {embed}).catch(error => logChannel.send(`userinfo error: ${error}`));
     await message.channel.send("ALLL DONE!!!!");
 
 }

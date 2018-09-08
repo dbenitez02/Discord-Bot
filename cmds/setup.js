@@ -1,7 +1,7 @@
 module.exports.run = (bot, message, args) => {
 
     // gotta check for the channel and role.
-    const logChannel = bot.channels.find("name", "admin-log");
+    const logChannel = message.guild.channels.find("name", "admin-log");
     const checkRole = message.guild.roles.find("name", "plebs");
     message.author.send("Checking on a couple of things");
     //logChannel.send("Checking for this channel.");
@@ -32,7 +32,7 @@ module.exports.run = (bot, message, args) => {
               message.author.send("Plebs has been created")
           
         } catch(e) {
-            logChannel.send(e.stack);
+            console.log(e.stack);
             message.author.send("Oopsie whoopsie someone made a fucky wucky. The dev might know."); 
         }
     } else {
