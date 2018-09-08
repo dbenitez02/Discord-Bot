@@ -82,7 +82,7 @@ bot.on('ready', async () => {
 
 // Create an event listener for new guild members
 bot.on('guildMemberAdd', member => {
-  const logChannel = bot.channels.find("name", "admin-log");
+  const logChannel = member.guild.channels.find("name", "admin-log");
 
   logChannel.send(`User ${member.user.username} has joined the server.`);
 
