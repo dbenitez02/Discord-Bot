@@ -4,16 +4,14 @@ module.exports.run = (bot, message, args) => {
     const logChannel = bot.channels.find("name", "admin-log");
     const checkRole = message.guild.roles.find("name", "plebs");
     message.author.send("Checking on a couple of things");
-    logChannel.send("Checking for this channel.");
+    //logChannel.send("Checking for this channel.");
     
     // First order of business, check for event logger
     if(!logChannel) {
         try {
-            message.guild.createChannel('admin-log', 'text', [{
-                allow: ['ADMINISTRATOR']
-            }])
+            message.guild.createChannel('admin-log', 'text');
+            message.author.send("A log event channel has been created. Make sure only admins use it");
 
-            message.author.send("A log event channel has been created.");
         } catch (e) {
             console.log(e.stack);
             message.author.send("Oopsie whoopsie someone made a fucky wucky. The dev might know.");
