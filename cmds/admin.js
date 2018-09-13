@@ -30,8 +30,9 @@ module.exports.run = async (bot, message, args) => {
             message.author.send('', {embed})
         }
         catch(e) {
-            logChannel.send(e.stack);
-            message.channel.send("Oopsie whoopsie someone made a fucky wucky. The dev might know.");
+            logChannel.send("embed error. `admin command`" + e.stack);
+            console.log(e.stack);
+            message.author.send("Oopsie whoopsie someone made a fucky wucky. The dev might know.");
         }
     }
     else {

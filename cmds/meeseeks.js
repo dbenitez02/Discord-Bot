@@ -15,7 +15,10 @@ module.exports.run = async (bot, message, args) => {
     .addField("!define", "For when you want to find definitions for your weak memes.")
     .addField("!admin", "For admin use only!!");
 
-message.channel.send('', {embed}).catch(error => logChannel.send(`help command error: ${error}`));
+await message.channel.send('', {embed}).catch((error) => {
+    logChannel.send("Embed error occured. Probably failed to send the embed.");
+    console.log(error);
+    });
 await message.channel.send("ALLL DONE!!!!");
 
 return 0;

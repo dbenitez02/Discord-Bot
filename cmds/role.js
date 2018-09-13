@@ -18,8 +18,12 @@ module.exports.run = async (bot, message, args) => {
     // Check to see if user already has role.
     if(userRole.roles.has(assignRole)) return message.author.send(`They're already assigned ${assignRole}`);
 
-    userRole.addRole(assignRole).catch(error => `role command error: ${error}`);
-    await message.channel.send(`${userRole} is now ${assignRole}!! OOOOHHHH WEEEEEE!`);
+    await userRole.addRole(assignRole)
+        .then(message.channel.send(`${userRole} is now ${assignRole}!! OOOOHHHH WEEEEEE!`))
+        .catch(error => { 
+        console.log("role command error\n:" + error);
+        logChannel.send("`role command error` Someone made a fucky wucky. Get the dev.");
+    });
     logChannel.send(`${userRole} is now ${assignRole}, assigned by ${message.author.username}.`);
 
     return 0;

@@ -35,12 +35,13 @@ module.exports.run = async (bot, message, args) => {
 
         try {
             await announceChannel.send('Hey! @everyone\n', {embed});
-            logChannel.send("An anouncement has been made.");
+            logChannel.send(message.author + " has made an anouncement.");
+            console.log("announce command used.")
         }
         catch(e) {
-            //logChannel.send(e.stack);
-            console.log(e.stack);
-            logChannel.send("Someone created a fucky wucky. The dev might know.");
+            console.log("Annouonce command error:\n" + e.stack);
+            message.author.send("Someone created a fucky wucky. The dev might know.");
+            logChannel.send("`Announce command` error\n" + e.stack);
         }
 
     return 0;

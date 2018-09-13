@@ -64,14 +64,14 @@ bot.on('ready', async () => {
      console.log(e.stack);
    }
    antiSpam(bot, {
-    warnBuffer: 3, //Maximum amount of messages allowed to send in the interval time before getting warned.
-    maxBuffer: 5, // Maximum amount of messages allowed to send in the interval time before getting banned.
-    interval: 500, // Amount of time in ms users can send a maximum of the maxBuffer variable before getting banned.
-    warningMessage: "Hi! Mr. Meekseeks, Im here to give you your last warning.", // Warning message send to the user indicating they are going to fast.
+    warnBuffer: 10, //Maximum amount of messages allowed to send in the interval time before getting warned.
+    maxBuffer: 12, // Maximum amount of messages allowed to send in the interval time before getting banned.
+    interval: 200, // Amount of time in ms users can send a maximum of the maxBuffer variable before getting banned.
+    warningMessage: "Hi! Mr. Meekseeks, I'm here to give you your last warning.", // Warning message send to the user indicating they are going to fast.
     banMessage: "Dis fuckboi has been banned for being an annoying shit, anyone else up for the ban?", // Ban message, always tags the banned user in front of it.
-    maxDuplicatesWarning: 6,// Maximum amount of duplicate messages a user can send in a timespan before getting warned
-    maxDuplicatesBan: 8, // Maximum amount of duplicate messages a user can send in a timespan before getting banned
-    deleteMessagesAfterBanForPastDays: 2 // Delete the spammed messages after banning for the past x days.
+    maxDuplicatesWarning: 9,// Maximum amount of duplicate messages a user can send in a timespan before getting warned
+    maxDuplicatesBan: 14, // Maximum amount of duplicate messages a user can send in a timespan before getting banned
+    deleteMessagesAfterBanForPastDays: 1 // Delete the spammed messages after banning for the past x days.
    });
 
    console.log("The anti spam is locked and loaded.");

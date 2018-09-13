@@ -3,6 +3,7 @@ module.exports.run = async (bot, message, args) => {
     const ifAdmin = message.member.hasPermission("MANAGE_MESSAGES");
     
     await message.channel.send("CAAAAAAAN DOOOOO!");
+    logChannel.send("`newrole` command used by " + message.author);
 
     if(!ifAdmin) return message.author.send("Hi, I'm Mr. Meeseeks and you don't have `MANAGE_MESSSAGES` permission.");
 
@@ -16,19 +17,21 @@ module.exports.run = async (bot, message, args) => {
               permissions: []
               });
           
-        } catch(e) {
-            logChannel.send("newrole command error:\n")
-            logChannel.send(e.stack);
-            message.channel.send("Someone made a fucky wucky. The dev might know.");
+        } 
+        catch(e) {
+            logChannel.send("newrole command error occured");
+            console.log("newrole commadn error:\n" + e.stack);
+            message.author.send("Oppsie whoopsie, someone made a fucky wucky. Get the dev.");
             
-            }
-    } else {
-
-        message.author.send(`${newRole} has already been created.`);
-        logChannel.send(`${newRole} has been created by ${message.author.username}.`);
-        await message.author.send(`${newRole} HAS BEEN CREATED, OOOOOOOOOOHHH WEEEEEEE!`);
-        await message.channel.send("ALLLLLL DONE!");
+        }
+    } 
+    else {
+       return message.author.send(`${newRole} has already been created.`);
     }
+
+    logChannel.send(`${newRole} has been created by ${message.author.username}.`);
+    await message.author.send(`${newRole} HAS BEEN CREATED, OOOOOOOOOOHHH WEEEEEEE!`);
+    await message.channel.send("ALLLLLL DONE!");
 
     return 0;
 }

@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
 }
 
 async function purge(bot, message, args) {
-    const logChannel = bot.channels.find("name", "admin-log");
+    const logChannel = message.guild.channels.find("name", "admin-log");
 
     message.delete(); // Delete the command message
 
@@ -33,7 +33,11 @@ async function purge(bot, message, args) {
     }
     else {
         message.channel.bulkDelete(num)
-            .catch(error => logChannel.send(`command error: ${error}`));
+            .catch(error => {
+                logChannel.send("`purge command` error occurred."); 
+                console.log("A purge command error occurred\n" + error); 
+                message.author.send("Can't delete message more than two weeks old!! AHHHH!"); 
+            });
         return;
     }
 }

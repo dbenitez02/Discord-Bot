@@ -1,4 +1,6 @@
 module.exports.run = async (bot, message, args) => {
+    var usersBlock = {};
+
     const logChannel = message.guild.channels.find("name", "admin-log");
 
     await message.channel.send("CAAAAAAAN DOOOOO!");
@@ -14,8 +16,14 @@ module.exports.run = async (bot, message, args) => {
     if(toBlock.id === message.author.id) return message.author.send("Hi, I'm Mr. Meeseeks, YOU CAN'T BLOCK YOURSELF.");
 
     //Block user
-    toBlock.block().catch(error => logChannel.send(`block commmand error: ${error}`));
-    await message.author.send(`I have blocked ${toBlock}'s`);
+    await toBlock.block().then(usersBlock.push(toBlock.id))
+        .catch(error => {
+            message.author.send("Oppsie whoopsie, someone made a fucky wucky. Get the dev.");
+            logChannel.send("`block commmand` error:\n" + error);
+            console.log("Block command error\n" + error); 
+        });
+    
+    message.author.send(`I have blocked ${toBlock}`);
     logChannel.send(`${toBlock} has been blocked.`);
 
     return 0;

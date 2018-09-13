@@ -38,16 +38,21 @@ module.exports.run = async (bot, message, args) => {
             });
           });
       } catch(e) {
-          logChannel.send(e.stack); // Error would normally mean there was nothing to mute.
-          logChannel.send("Someone made a fucky wucky. Dev might know.");
+          console.log(e.stack); // Error would normally mean there was nothing to mute.
+          logChannel.send("Oppsie whoopsie, someone made a fucky wucky. Get the dev.");
           }
         }
   //Checks if a user is already muted.
   if(toMute.roles.has(role.id)) return message.author.send("This user is already muted!");
       
   //Mutes user and adds them to the muted group
-  toMute.addRole(role).catch(error => logChannel.send(`mute command error: ${error}`));
-  await message.author.send(`I have muted ${toMute}`);
+  await toMute.addRole(role).then(console.log(`${toMute} has been muted by ${message.author}.`))
+    .catch(error => { 
+      logChannel.send(`mute command error: ${error}`);
+      console.log("`mute error:`\n" + error);
+  });
+
+  message.author.send(`I have muted ${toMute}`);
   logChannel.send(`${toMute} has been muted.`);
       
   return 0;

@@ -12,14 +12,14 @@ module.exports.run = async (bot, message, args) => {
 
     //Check if user blocked themselves.
     if(toUnblock.id === message.author.id) return message.author.send("Can't unblock yourself boi.");
-    
-    //Psuedo code here..
-    //if(!userBlocked = false) return "User is no blocked."
-    //if(userblocked = true) then unblock
 
     //Unblock user
-    toUnblock.unblock().catch(error => logChannel.send(`unblock command error: ${error}`));
-    await message.author.send(`I have unblocked ${toUnblock}`);
+    await toUnblock.unblock().then(message.author.send(`I have unblocked ${toUnblock}`))
+        .catch((error) => {
+            logChannel.send("`unblock command` error occurred.");
+            message.author.send("Someone made a fucky wucky. Get the dev.");
+            console.log("unblock command error" + error);
+        });
     logChannel.send(`User ${toUnblock} has been unblocked.`);
 
     return 0;

@@ -11,8 +11,8 @@ module.exports.run = async (bot, message, args) => {
 
     // if argument found, we will store it.
     const def = await urban(args.join(" ")).catch(error => { 
-        message.channel.send("Oppsie whoopsie, someone made a fucky wucky. Ask the dev. ");
-        logChannel.send(`define command error: ${error}`);
+        message.author.send("Oppsie whoopsie, someone made a fucky wucky. Get the dev. ");
+        console.log("urban module error error:\n" + error);
      });
 
      const embed = new Discord.RichEmbed()
@@ -27,7 +27,11 @@ module.exports.run = async (bot, message, args) => {
         .addField(":thumbsup:", def.thumbsUp, true)  
         .addField(":thumbsdown:", def.thumbsDown, true);
         
-    message.channel.send('', {embed}).catch(error => logChannel.send(`embed error: ${error}`));
+    await message.channel.send('', {embed})
+        .catch(error => { 
+            logChannel.send("Embed error:" + error);
+            console.log("Embed error" + error);
+        });
 
     await message.channel.send("ALLLLLL DONE!");
 

@@ -13,11 +13,14 @@ module.exports.run = async (bot, message, args) => {
     .setTimestamp()
     .addField("Region: ", message.guild.region, true)
     .addField("Full Username: ", `${message.author.username}#${message.author.discriminator}`, true)
-    .addField("Role: ", message.guild.roles.name)
     .addField("Created at", message.author.createdAt);
 
 
-    message.channel.send('', {embed}).catch(error => logChannel.send(`userinfo error: ${error}`));
+    message.channel.send('', {embed}).catch((error) => {
+        logChannel.send("Embed error, probably failed to send embed");
+        message.author.send("Someone made a fucky wucky. Get the dev.");
+        console.log("userinfo command error\n" + error);
+    });
     await message.channel.send("ALLL DONE!!!!");
 
 }
