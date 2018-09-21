@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
     //Unblock user
     await toUnblock.unblock().then(message.author.send(`I have unblocked ${toUnblock}`))
         .catch((error) => {
-            logChannel.send("`unblock command` error occurred.");
+            logChannel.send("`unblock command` has error occurred.");
             message.author.send("Someone made a fucky wucky. Get the dev.");
             console.log("unblock command error" + error);
         });

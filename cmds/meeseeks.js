@@ -15,10 +15,17 @@ module.exports.run = async (bot, message, args) => {
     .addField("!define", "For when you want to find definitions for your weak memes.")
     .addField("!admin", "For admin use only!!");
 
-await message.channel.send('', {embed}).catch((error) => {
-    logChannel.send("Embed error occured. Probably failed to send the embed.");
-    console.log(error);
-    });
+    if(embed) {
+        try {
+            message.channel.send('', {embed})
+        }
+        catch(e) {
+            logChannel.send("`meeseeks command` has error occurred");
+            message.author.send("Someone made a fucky wucky. Get the dev.")
+            console.log("Embed error:\n" + e);
+        }
+    }
+
 await message.channel.send("ALLL DONE!!!!");
 
 return 0;

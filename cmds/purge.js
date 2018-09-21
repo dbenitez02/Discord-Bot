@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
 
     await purge(bot, message, args); // Add a third parameter here.. that being the bot.
 
-    logChannel.send(`${message.author.username} has used the purge command!`);
+    logChannel.send(`${message.author} has used the purge command!`);
 
     return 0;
 }
@@ -36,7 +36,7 @@ async function purge(bot, message, args) {
             .catch(error => {
                 logChannel.send("`purge command` error occurred."); 
                 console.log("A purge command error occurred\n" + error); 
-                message.author.send("Can't delete message more than two weeks old!! AHHHH!"); 
+                message.author.send("Oopsie woopsie someone created a fucky wucky. Get the dev."); 
             });
         return;
     }

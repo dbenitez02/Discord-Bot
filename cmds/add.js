@@ -12,9 +12,10 @@ module.exports.run = async (bot, message, args) => {
 
     await addUser.addFriend().then(message.author.send(`I send a friend request to ${addUser}`))
     .catch(error => { 
-        logChannel.send("`Add command` error:" + error);
+        logChannel.send("`Add command` error has occurred");
         console.log("add command error\n" + error);
-        message.author.send("Friend request failed."); });
+        message.author.send("Friend request failed. Get the dev."); 
+    });
 
     return 0;
 

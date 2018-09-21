@@ -13,12 +13,17 @@ module.exports.run = async (bot, message, args) => {
     .addField("Region:", message.guild.region, true)
     .setTimestamp();
 
-    message.channel.send('', {embed})
-        .catch((error) => { 
-            logChannel.send("`serverinfo command` error has occurred. Probably an issue with the embed"); 
-            message.author.send("Someone made a fucky wucky. Get the dev.");
-            console.log("serverinfo command error:\n" + error);
-        });
+    if(embed) {
+        try {
+            message.channel.send('', {embed})
+        }
+        catch(e) {
+            logChannel.send("`serverinfo command` has error occurred");
+            message.author.send("Someone made a fucky wucky. Get the dev.")
+            console.log("Embed error:\n" + e);
+        }
+    }
+
     await message.channel.send("ALLL DONE!!!!");
 }
 

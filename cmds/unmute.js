@@ -21,9 +21,9 @@ module.exports.run = async (bot, message, args) => {
         console.log(`${message.author} has muted ${toMute}`);
     })
     .catch((error) => {
-        logChannel.send(`Unmute command error: ${error}`);
+        logChannel.send("`Unmute command` error has occurred.");
         message.author.send("Someone made a fucky wucky. Get the dev.");
-        console.log("unmute error:\n" + error)
+        console.log("unmute error:\n" + error);
     });
 
     logChannel.send(`${toMute} has been unmuted.`);

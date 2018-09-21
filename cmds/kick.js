@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
         }
         catch(e) {
             console.log("kick command error:\n" + e.stack); // Send errors to check what happened.
-            logChannel.send("`kick command` error:\n" + e.stack);
+            logChannel.send("`kick command` error has occurred");
             message.author.send("Someone made a fucky wucky. Get the dev.");
         }
 }

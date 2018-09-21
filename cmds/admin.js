@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-    await message.channel.send("CAAAAAAAN DOOOOO!");
+    message.delete();
 
     const logChannel = message.guild.channels.find("name", "admin-log");
     const ifAdmin = message.member.hasPermission("ADMINISTRATOR");
@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
             message.author.send('', {embed})
         }
         catch(e) {
-            logChannel.send("embed error. `admin command`" + e.stack);
+            logChannel.send("`admin command` error has occurred. Probably an issue with the embed");
             console.log(e.stack);
             message.author.send("Oopsie whoopsie someone made a fucky wucky. The dev might know.");
         }

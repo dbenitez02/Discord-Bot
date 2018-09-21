@@ -33,15 +33,17 @@ module.exports.run = async (bot, message, args) => {
         .setFooter("Mr. Meeseeks | v0.0.4.20.69", bot.user.displayAvatarURL)
         .setTimestamp();
 
-        try {
-            await announceChannel.send('Hey! @everyone\n', {embed});
-            logChannel.send(message.author + " has made an anouncement.");
-            console.log("announce command used.")
-        }
-        catch(e) {
-            console.log("Annouonce command error:\n" + e.stack);
-            message.author.send("Someone created a fucky wucky. The dev might know.");
-            logChannel.send("`Announce command` error\n" + e.stack);
+        if(embed) {
+            try {
+                await announceChannel.send('Hey! @everyone\n', {embed});
+                logChannel.send(message.author + " has made an anouncement.");
+                console.log("announce command used.")
+            }
+            catch(e) {
+                console.log("`Annouonce command` error has occured.");
+                message.author.send("Oopsie woopsie someone created a fucky wucky. Get the dev.");
+                logChannel.send("Announce command error:\n" + e.stack);
+            }
         }
 
     return 0;

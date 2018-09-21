@@ -20,9 +20,10 @@ module.exports.run = async (bot, message, args) => {
     await userBan.ban(numDays).then(userBanned.push(userBan))
         .catch(error => { 
             message.author.send("Oppsie whoopsie, someone made a fucky wucky. Ask the dev.");
-            logChannel.send("`ban command` error:"  + error); 
+            logChannel.send("`Ban command` error has occurred"); 
             console.log("ban command error\n" + error);
         });
+
     logChannel.send(`${userBan} has been banned for ${numDays} days by ${message.author.username}.`);
     console.log(`${userBan} has been banned for ${numDays} days by ${message.author.username}.`);
 
