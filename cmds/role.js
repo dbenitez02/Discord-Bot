@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
         .then(message.channel.send(`${userRole} is now ${assignRole}!! OOOOHHHH WEEEEEE!`))
         .catch(error => { 
         console.log("role command error\n:" + error);
-        logChannel.send("`role command error` Someone made a fucky wucky. Get the dev.");
+        logChannel.send("`role command` error Someone made a fucky wucky. Get the dev.");
     });
     logChannel.send(`${userRole} is now ${assignRole}, assigned by ${message.author.username}.`);
 

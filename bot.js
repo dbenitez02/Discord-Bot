@@ -52,7 +52,7 @@ const prefix = botSettings.prefix;
 // const URL_REG_EXP = /^(?:https?:\/\/)?(?:w{3}\.)?(?:youtu\.be\/|youtube\.com\/watch\?v=)[\w-]{11}$/i;
 
 // Bot logs in
-bot.login(botSettings.token);
+bot.login(process.env.TOKEN);
 
 bot.on('ready', async () => {
   console.log(`READY TO RUMBLE!!!!!! ${bot.user.username}`);
