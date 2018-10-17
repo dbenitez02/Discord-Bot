@@ -18,6 +18,14 @@ module.exports.run = async (bot, message, args) => {
     return 0;
 }
 
+/** 
+ * Grabbing the number of messsages to delete.
+ * @param {client} [bot]
+ * @param {string} [message]
+ * @param {number} [args=0]
+ *  
+*/
+
 async function purge(bot, message, args) {
     const logChannel = message.guild.channels.find("name", "admin-log");
 

@@ -15,13 +15,7 @@ const prefix = botSettings.prefix;
 
 /**
  * TODO:
- * 1. Need to create separate files for each command to make this look cleaner.[DONE]
- * 2. Debug the fuck out of a couple of commands that are already noted.. Gonna need some alcohol. [DONE]
- * 3. Test the the commands and spend the rest of my life debugging them. [Still need to debug user-related commands]
- * 4. Research some shit about youtubes api. [Its broken, tabled.]
- * 5. Create an annoucement command. [DONE] 
- * 6. Create a purge command. [DONE]
- * 7. Create a ban command. [Needs to be tested.]
+ * 1. Create a ban command. [Needs to be tested.]
  */
 
  // Reads files from the cmds and sends an error if there is any while searching commands
@@ -64,13 +58,13 @@ bot.on('ready', async () => {
      console.log(e.stack);
    }
    antiSpam(bot, {
-    warnBuffer: 10, //Maximum amount of messages allowed to send in the interval time before getting warned.
-    maxBuffer: 12, // Maximum amount of messages allowed to send in the interval time before getting banned.
-    interval: 200, // Amount of time in ms users can send a maximum of the maxBuffer variable before getting banned.
+    warnBuffer: 8, //Maximum amount of messages allowed to send in the interval time before getting warned.
+    maxBuffer: 10, // Maximum amount of messages allowed to send in the interval time before getting banned.
+    interval: 300, // Amount of time in ms users can send a maximum of the maxBuffer variable before getting banned.
     warningMessage: "Hi! I'm Mr. Meekseeks, I'm here to give you your last warning.", // Warning message send to the user indicating they are going to fast.
     banMessage: "Dis fuckboi has been banned for being an annoying shit, anyone else up for the ban?", // Ban message, always tags the banned user in front of it.
-    maxDuplicatesWarning: 3,// Maximum amount of duplicate messages a user can send in a timespan before getting warned
-    maxDuplicatesBan: 5, // Maximum amount of duplicate messages a user can send in a timespan before getting banned
+    maxDuplicatesWarning: 5,// Maximum amount of duplicate messages a user can send in a timespan before getting warned
+    maxDuplicatesBan: 7, // Maximum amount of duplicate messages a user can send in a timespan before getting banned
     deleteMessagesAfterBanForPastDays: 1 // Delete the spammed messages after banning for the past x days.
    });
 
@@ -79,6 +73,7 @@ bot.on('ready', async () => {
    bot.user.setStatus('online');
    bot.user.setPresence({ game: { name: 'use !meeseeks for help', type: 0 } })
 });
+
 
 // Create an event listener for new guild members
 bot.on('guildMemberAdd', member => {
