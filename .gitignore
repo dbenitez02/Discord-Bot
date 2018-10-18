@@ -2,7 +2,6 @@
 node_modules
 offlimits
 test.js
-timedmessages.js
 
 # element files
 .vscode
