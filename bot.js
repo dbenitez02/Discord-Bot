@@ -1,7 +1,3 @@
-//const ytdl = require("ytdl-core");
-//const request = require("request");
-//const getYoutubeID = require("get-youtube-id");
-//const fetchVideoInfo = require("youtube-info");
 const botSettings = require("./botsettings.json"); // Import the settings from the file and read it as js
 const Discord = require("discord.js"); // Import the discord.js module
 const antiSpam = require("discord-anti-spam");
@@ -10,8 +6,6 @@ const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});      // Create an instance of a Client
 bot.commands = new Discord.Collection();
 const prefix = botSettings.prefix;
-//const yt_api_key = botSettings.yt_api_key;
-//const botsettings = botSettings.bot_controller;
 
 /**
  * TODO:
@@ -41,9 +35,6 @@ const prefix = botSettings.prefix;
     bot.commands.set(props.help.name.toLowerCase(), props);
   });
  });
-
-// Accepts any link form.
-// const URL_REG_EXP = /^(?:https?:\/\/)?(?:w{3}\.)?(?:youtu\.be\/|youtube\.com\/watch\?v=)[\w-]{11}$/i;
 
 // Bot logs in
 bot.login(process.env.TOKEN);
@@ -100,39 +91,6 @@ bot.on("message", message => {
   const messageArray = message.content.split(" ");
   const command = messageArray[0];  // the command after the prefix.
   const args = messageArray.slice(1); // Slices off the command in messageArray leaving arguments.
-
-  /**
-   * What would Mr. Meeseeks say?
-   */
-  if(message.content.toLowerCase() === `summon mr. meeseeks`) {
-    message.channel.send("I'M MR. MEESEEKS! LOOK AT MEEEEE!!!!!!");
-  
-  }
-
-  if(message.content.toLowerCase() === `existence`) {
-    message.channel.send("EXISTENCE IS PAIN!!!!!");
-
-  }
-
-  if(message.content.toLowerCase() === `good`) {
-    message.channel.send({
-      files: [{
-        attachment: '/Users/Dan/Documents/Jsbot/pics/good.jpg',
-        name: 'good.jpg'
-      }]
-    })
-      .catch(console.error);
-  }
-
-  if(message.content.toLowerCase() === `die`) {
-    message.channel.send({
-      files: [{
-        attachment: '/Users/Dan/Documents/Jsbot/pics/die.jpg',
-        name: 'die.jpg'
-      }]
-    })
-      .catch(console.error);
-  }
 
   if(!command.startsWith(prefix)) return; // Returns the prefix of the command if not found
 
