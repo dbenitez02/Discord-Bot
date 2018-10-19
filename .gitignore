@@ -1,10 +1,10 @@
-# files and modules
+# files
 node_modules
 offlimits
 test.js
-timedmessages.js
-
-
+pics
+botsettings.json
+package-lock.json
 
 # element files
 .vscode

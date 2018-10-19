@@ -1,7 +1,3 @@
-//const ytdl = require("ytdl-core");
-//const request = require("request");
-//const getYoutubeID = require("get-youtube-id");
-//const fetchVideoInfo = require("youtube-info");
 const botSettings = require("./botsettings.json"); // Import the settings from the file and read it as js
 const Discord = require("discord.js"); // Import the discord.js module
 const antiSpam = require("discord-anti-spam");
@@ -10,8 +6,6 @@ const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});      // Create an instance of a Client
 bot.commands = new Discord.Collection();
 const prefix = botSettings.prefix;
-//const yt_api_key = botSettings.yt_api_key;
-//const botsettings = botSettings.bot_controller;
 
 /**
  * TODO:
