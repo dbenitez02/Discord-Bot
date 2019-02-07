@@ -36,9 +36,6 @@ const prefix = botSettings.prefix;
   });
  });
 
-// Accepts any link form.
-// const URL_REG_EXP = /^(?:https?:\/\/)?(?:w{3}\.)?(?:youtu\.be\/|youtube\.com\/watch\?v=)[\w-]{11}$/i;
-
 // Bot logs in
 bot.login(process.env.TOKEN);
 
@@ -94,39 +91,6 @@ bot.on("message", message => {
   const messageArray = message.content.split(" ");
   const command = messageArray[0];  // the command after the prefix.
   const args = messageArray.slice(1); // Slices off the command in messageArray leaving arguments.
-
-  /**
-   * What would Mr. Meeseeks say?
-   */
-  if(message.content.toLowerCase() === `summon mr. meeseeks`) {
-    message.channel.send("I'M MR. MEESEEKS! LOOK AT MEEEEE!!!!!!");
-  
-  }
-
-  if(message.content.toLowerCase() === `existence`) {
-    message.channel.send("EXISTENCE IS PAIN!!!!!");
-
-  }
-
-  if(message.content.toLowerCase() === `good`) {
-    message.channel.send({
-      files: [{
-        attachment: '/Users/Dan/Documents/Jsbot/pics/good.jpg',
-        name: 'good.jpg'
-      }]
-    })
-      .catch(console.error);
-  }
-
-  if(message.content.toLowerCase() === `die`) {
-    message.channel.send({
-      files: [{
-        attachment: '/Users/Dan/Documents/Jsbot/pics/die.jpg',
-        name: 'die.jpg'
-      }]
-    })
-      .catch(console.error);
-  }
 
   if(!command.startsWith(prefix)) return; // Returns the prefix of the command if not found
 
