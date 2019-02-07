@@ -7,11 +7,6 @@ const bot = new Discord.Client({disableEveryone: true});      // Create an insta
 bot.commands = new Discord.Collection();
 const prefix = botSettings.prefix;
 
-/**
- * TODO:
- * 1. Create a ban command. [Needs to be tested.]
- */
-
  // Reads files from the cmds and sends an error if there is any while searching commands
  fs.readdir("./cmds/", (err, files) => {
   if(err) console.error(err);
