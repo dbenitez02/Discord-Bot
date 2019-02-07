@@ -5,7 +5,7 @@ test.js
 pics
 botsettings.json
 package-lock.json
-
+blazit.js
 # element files
 .vscode
 .eslintrc.json
